@@ -9,9 +9,9 @@ var output;
 
 
 app.get('/index.html', function(request, response) {
-	buffer = fs.readFileSync('/index.html',null);
+	var k = fs.readFileSync('./index.html','utf-8');
 	//output = buffer.toString("utf-8",0,80);
-	response.send(buffer);
+	response.send(k);
 });
 
 var port = process.env.PORT || 5000;
