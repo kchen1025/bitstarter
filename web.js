@@ -10,8 +10,8 @@ var output;
 
 app.get('/index.html', function(request, response) {
 	buffer = fs.readFileSync('/index.html',null);
-	output = buffer.toString("utf-8",0,80);
-	response.send(output);
+	//output = buffer.toString("utf-8",0,80);
+	response.send(buffer);
 });
 
 var port = process.env.PORT || 5000;
