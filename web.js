@@ -6,14 +6,12 @@ app.use(express.logger());
 var fs = require('fs');
 var buffer = new Buffer(80);
 
-buffer = fs.readFileSync(index.html,null);
+var output; 
 
-//buffer.write(dummy,"utf-8");
-var output = buffer.toString("utf-8",0,80);
-
-
-app.get('/', function(request, response) {
-  response.send(output);
+app.get('/index.html', function(request, response) {
+	buffer = fs.readFileSync('/index.html','utf-8');
+	output = buffer.toString("utf-8",0,80);
+	response.send(output);
 });
 
 var port = process.env.PORT || 5000;
